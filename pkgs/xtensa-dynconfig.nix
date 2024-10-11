@@ -3,8 +3,8 @@ let
   xtensa-overlays = fetchFromGitHub {
     owner = "espressif";
     repo = "xtensa-overlays";
-    rev = "esp-2021r1";
-    hash = "sha256:0hqzgwrjxlkdyyqkdna72wqmxbl97wvn3rp6khn3szrla8gq3mh4";
+    rev = "dd1cf19f6eb327a9db51043439974a6de13f5c7f";
+    hash = "sha256-guFWS6QAjJ1Z2u2YOIha97EaBGLThWRz6kjrPSf0y9M=";
   };
 in
 stdenv.mkDerivation {

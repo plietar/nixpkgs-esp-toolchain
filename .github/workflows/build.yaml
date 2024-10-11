@@ -1,0 +1,17 @@
+on:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        package: ["xtensa-esp-gcc", "riscv32-esp-gcc"]
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: DeterminateSystems/nix-installer-action@main
+    - uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: Build
+      run: nix build .#${{ matrix.package }}

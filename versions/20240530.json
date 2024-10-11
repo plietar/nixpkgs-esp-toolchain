@@ -1,0 +1,23 @@
+{
+  "binutils-gdb": {
+    "owner": "espressif",
+    "repo": "binutils-gdb",
+    "rev": "esp-2.41.0_20240530",
+    "version": "2.41.0",
+    "hash": "sha256-xAl8JgQv1CHvZy21+0eXkIoDN+igFNLoPI+d05CKGdQ="
+  },
+  "gcc": {
+    "owner": "espressif",
+    "repo": "gcc",
+    "rev": "esp-13.2.0_20240530",
+    "version": "13.2.0",
+    "hash": "sha256-Lg09maUlh3M61WipILgseWaLELv1iOXkAwD1TaIwj1A="
+  },
+  "newlib-esp32": {
+    "owner": "espressif",
+    "repo": "newlib-esp32",
+    "rev": "esp-4.3.0_20240530",
+    "version": "4.3.0",
+    "hash": "sha256-y+czsl7wvdKpIyXJaSQPHTz5551BhHhxA8DDvJbwOOo="
+  }
+}

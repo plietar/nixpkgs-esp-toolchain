@@ -5,7 +5,6 @@
 , target-cflags ? [ ]
 , langC ? true
 , langCC ? true
-, xtensa-dynconfig ? null
 , lib
 , stdenv
 , fetchFromGitHub
@@ -102,8 +101,6 @@ stdenv.mkDerivation {
 
   makeFlags = map (t: "all-${t}") build-targets;
   installTargets = map (t: "install-${t}") build-targets;
-
-  XTENSA_GNU_CONFIG = xtensa-dynconfig;
 
   dontStrip = true;
 }

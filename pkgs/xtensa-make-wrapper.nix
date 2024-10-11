@@ -5,13 +5,14 @@ name: unwrapped: runCommand name
   CHIPS = [ "esp32" "esp32s2" "esp32s3" ];
 } ''
   mkdir -p $out/bin
-  for chip in $CHIPS; do
-    for tool in $(find ${unwrapped}/bin -type f); do
-      name=$(basename $tool)
+  for tool in $(find ${unwrapped}/bin -type f); do
+    name=$(basename $tool)
+    for chip in $CHIPS; do
+      f=xtensa_$chip.so
       if [[ $name =~ ^xtensa-esp-elf-(cc|gcc|g\+\+|c\+\+|gcc-[0-9.]+)$ ]]; then
-        makeWrapper $tool $out/bin/''${name//esp/$chip} --set XTENSA_GNU_CONFIG ${xtensa-dynconfig}/lib/xtensa_esp32.so
+        makeWrapper $tool $out/bin/''${name//esp/$chip} --set XTENSA_GNU_CONFIG ${xtensa-dynconfig}/lib/$f --add-flags -mdynconfig=$f
       else
-        makeWrapper $tool $out/bin/''${name//esp/$chip} --set XTENSA_GNU_CONFIG ${xtensa-dynconfig}/lib/xtensa_esp32.so
+        makeWrapper $tool $out/bin/''${name//esp/$chip} --set XTENSA_GNU_CONFIG ${xtensa-dynconfig}/lib/$f
       fi
     done
   done
